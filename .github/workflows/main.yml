@@ -23,7 +23,6 @@ jobs:
             ${{ runner.os }}-
       
       - name: Build docker image.
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: docker build -t dms-backend .
 
      
