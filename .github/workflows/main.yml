@@ -22,13 +22,8 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       
-      - name: Install dependencies
+      - name: Build docker image.
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        run: npm install
-
-      - name: Build
-        run: npm run start --if-present
-    env:
-        CI: true
+        run: docker build -t dms-backend .
 
      
